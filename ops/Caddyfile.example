@@ -1,0 +1,5 @@
+# Replace example.com with the real DNS name before enabling this site.
+# Caddy obtains and renews the HTTPS certificate automatically.
+example.com {
+  reverse_proxy 127.0.0.1:3000
+}

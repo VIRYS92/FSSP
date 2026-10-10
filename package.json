@@ -1,0 +1,46 @@
+{
+  "name": "fssp-control",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev:api": "tsx watch src/server.ts",
+    "dev:web": "vite --host 127.0.0.1",
+    "build": "npm run typecheck && vite build && tsc -p tsconfig.server.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.server.json --noEmit",
+    "db:migrate": "tsx src/db/migrate.ts",
+    "db:migrate:compiled": "node dist/server/db/migrate.js",
+    "start": "node dist/server/server.js",
+    "worker": "node dist/server/worker.js",
+    "test": "tsx --test test/*.test.ts"
+  },
+  "dependencies": {
+    "@fastify/multipart": "^9.4.0",
+    "@fastify/static": "^10.1.5",
+    "argon2": "^0.43.1",
+    "drizzle-orm": "0.45.2",
+    "exceljs": "^4.4.0",
+    "fastify": "^5.12.5",
+    "pdfjs-dist": "^5.4.149",
+    "pg": "8.16.3",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@types/node": "22.19.19",
+    "@types/pg": "8.15.5",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.2",
+    "esbuild": "0.28.2",
+    "tsx": "4.20.5",
+    "typescript": "5.9.3",
+    "vite": "8.0.13"
+  },
+  "overrides": {
+    "uuid": "^11.1.1"
+  }
+}
